@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} 
+    Home
+{% endblock %}
+
+{% block Script %}
+<script>
+    $(document).ready(function() {
+        var table = $('#ourtable2').DataTable({
+           "ajax": {
+              "processing": true,
+              "url": "{% url 'vals' %}",
+              "dataSrc": "",
+            },
+            "columns": [
+                    { "data": "Name"},
+                    { "data": "D.O.B"},
+                    { "data": "Email"},
+                    { "data": "Phone_no"},
+                ],
+        });
+    });
+</script>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="pageholder">
+        <div class="titleholder"> 
+            Data
+        </div>
+
+        <div class="linkholder">
+            <table id="ourtable2" class="beheertable dezetabel">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>D.O.B</th>
+                        <th>Email</th>
+                        <th>Phone no.</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+{% endblock %} 
